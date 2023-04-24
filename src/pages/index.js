@@ -13,6 +13,26 @@ export default function Home() {
   //
   const uploadImage = (e) => {
     const file = e.target.files[0];
+    // console.log(e);
+    const reader = new FileReader();
+
+    reader.onload = async (ev) => {
+      const img = new Image();
+
+      img.onload = () => {
+        const colorThief = new ColorThief();
+        const colorPalette = colorThief.getPalette(img, 8);
+
+        setUploadedImg(ev.target.result);
+        setClrPalette(colorPalette);
+
+        // console.log("clrpalette" + colorPalette);
+        // console.log(reader);
+      };
+      img.src = ev.target.result;
+    };
+
+    reader.readAsDataURL(file);
   };
 
   //
@@ -37,11 +57,11 @@ export default function Home() {
           <label htmlFor="file">
             <i className="fas fa-images"></i> Upload Image
           </label>
-          <input type="file" id="file" hidden />
+          <input type="file" id="file" hidden onChange={uploadImage} />
         </div>
       </header>
       <main className={styles.main}>
-        <DisplayImage />
+        <DisplayImage uploadedImg={uploadedImg} clrPalettte={clrPalettte} />
       </main>
     </>
   );
