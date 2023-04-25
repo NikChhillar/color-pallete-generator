@@ -21,7 +21,7 @@ export default function Home() {
 
       img.onload = () => {
         const colorThief = new ColorThief();
-        const colorPalette = colorThief.getPalette(img, 8);
+        const colorPalette = colorThief.getPalette(img, 6);
 
         setUploadedImg(ev.target.result);
         setClrPalette(colorPalette);
@@ -52,7 +52,7 @@ export default function Home() {
         />
       </Head>
       <header>
-        <h1>Color Palette Generator</h1>
+        <h1>Palette Generator</h1>
         <div className="input">
           <label htmlFor="file">
             <i className="fas fa-images"></i> Upload Image

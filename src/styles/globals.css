@@ -22,7 +22,7 @@ body {
 header {
   padding: 1rem 4rem;
   width: 100%;
-  min-height: 10vh;
+  min-height: 9vh;
   background: #262626;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
   border-bottom: 2px solid var(--border);
@@ -67,8 +67,8 @@ header .input {
 }
 
 .image {
-  width: 48rem;
-  height: 25rem;
+  width: 41rem;
+  height: 20rem;
 
   display: flex;
   align-items: center;
@@ -92,4 +92,34 @@ header .input {
   object-fit: cover;
   object-position: center;
   border-radius: 0.5rem;
+}
+
+@media screen and (max-width : 800px) {
+
+  header{
+    padding: 1rem 2rem;
+  }
+
+  .image{
+    width: 31rem;
+    height: 15rem;
+  }
+  
+}
+
+@media screen and (max-width : 550px) {
+
+  header{
+    padding: .5rem 1rem;
+    gap: 1rem;
+  }
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .image{
+    width: 25rem;
+    height: 12rem;
+  }
+  
 }
